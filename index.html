@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>MyWeather</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+      if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const positionString = position.coords.latitude + ',' + position.coords.longitude;
+                
+                localStorage.setItem("position", positionString);
+    
+            }, function(error) {
+                alert("Erreur de géolocalisation : " + error.message);
+            });
+    
+        } else {
+            alert("La géolocalisation n'est pas disponible.");
+        }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.jsx"></script>
+  </body>
+</html>
