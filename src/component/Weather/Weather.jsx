@@ -1,11 +1,5 @@
+/* eslint-disable react/prop-types */
 export default function Weather({ datas, onNameChange, onSubmit, cityName }) {
-    // Weather.propTypes = {
-    //     datas: PropTypes.any,
-    //     onNameChange: PropTypes.string.isRequired,
-    //     onSubmit: () => any,
-    //     cityName: PropTypes.string
-    // }
-    
 
     return (
         <>
