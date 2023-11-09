@@ -19,7 +19,7 @@ function App() {
     useEffect(() => {
         async function fetchData() {
             try {
-              const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=5&aqi=no&alerts=no`);
+              const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=no&alerts=no`);
               const datas = await response.json();
               (response.status === 200) ? setDatas(datas) : alert('Nom de ville incorrect');
 
@@ -28,10 +28,11 @@ function App() {
             }
         }
 
-            fetchData();
+        fetchData();
     }, [city, apiKey]);
 
     function handleDayClick(event) {
+        event.preventDefault();
         document.querySelector('.clickedDay').classList.remove('clickedDay');
         event.target.classList.add('clickedDay');
         setDaySelected(event.target.getAttribute('value'));
